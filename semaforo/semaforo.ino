@@ -1,4 +1,4 @@
-int delayRojo1= 5000;
+int delayRojo1= 10000;
 int rojo1 =5; 
 int amarillo1 = 12;
 int verde1 = 11;
@@ -9,9 +9,9 @@ int naranja= 7;
 int blanco=6;
 int botonRojo = 2;
 int botonInter = 3;
-int ContVueltas=0;
+int contVuelta=1;
 
-bool state=true;
+bool state=false;
 
 void setup()
 {
@@ -33,39 +33,41 @@ void setup()
 
 void loop()
 {
-  delayRojo1 = 800;
+  if(contVuelta != 0){
+    delayRojo1 = 1600;
+  }
   digitalWrite(rojo1, LOW);
   digitalWrite(verde2, LOW);
   delay(delayRojo1);
   digitalWrite(verde2, HIGH);
-  digitalWrite(amarillo2, LOW);
-  delay(500);
+  //NO ES
+  delay(700);
   digitalWrite(naranja,LOW);
-  delay(500);
+  delay(700);
   digitalWrite(naranja, HIGH);
-  delay(500);
-  digitalWrite(naranja,LOW);
-  delay(500);
-  digitalWrite(naranja,HIGH);
+  delay(700);
   digitalWrite(amarillo2, HIGH);
+  digitalWrite(naranja,LOW);
+  delay(1000);
+  digitalWrite(naranja,HIGH);
+  digitalWrite(amarillo2, LOW);//  CAMBIO HIGH POR LOW
   digitalWrite(rojo1, HIGH);
   digitalWrite(verde1, LOW);
   digitalWrite(rojo2, LOW);
-  delay(800);
+  delay(1600);
  digitalWrite(verde1, HIGH);
-  digitalWrite(amarillo1, LOW);
-  delay(200);
-  digitalWrite(amarillo1, HIGH);
+  digitalWrite(amarillo1, LOW);// NO ES
+  delay(400);
+  digitalWrite(amarillo1, HIGH);// NO ES 
   digitalWrite(rojo2, HIGH);
-  Serial.println("Otra vuelta ");
-  Serial.println(ContVueltas = ContVueltas + 1);
-  
+
+  contVuelta++;
     } 
 
 
 void intermitente() {    
  state = !state;
-  delay(500);
+ Serial.println("INTER");
   interrupts();  // Esta linea "vuelve" a habilitar la interrupciones
   
     digitalWrite(rojo1, LOW);
@@ -76,7 +78,7 @@ void intermitente() {
     
     digitalWrite(amarillo1, LOW);
     digitalWrite(amarillo2, LOW);
-    delay(500);
+    delay(1000);
     digitalWrite(amarillo1, HIGH);
     digitalWrite(amarillo2,HIGH);
                  
@@ -87,10 +89,10 @@ void intermitente() {
   
 
 void extenderRojo() {
-  interrupts();
   Serial.println("Paso por aca");
-  delayRojo1 = 5000;
-  //noInterrupts();
+  delayRojo1 = 10000;
+  contVuelta = 0;
+  noInterrupts();
  // pinMode(5, OUTPUT);
  // pinMode(12, OUTPUT);
   //pinMode(11, OUTPUT);
@@ -102,11 +104,11 @@ void extenderRojo() {
   //pinMode(2, INPUT_PULLUP);
   //while()
       
-      digitalWrite(rojo1, HIGH);
+  //    digitalWrite(rojo1, HIGH);
  // digitalWrite(verde2, LOW);
-    delay(delayRojo1);
-  digitalWrite(rojo1, LOW);
-  digitalWrite(verde2, HIGH);
+ //   delay(delayRojo1);
+ // digitalWrite(rojo1, LOW);
+ // digitalWrite(verde2, HIGH);
 
   interrupts();
      }
