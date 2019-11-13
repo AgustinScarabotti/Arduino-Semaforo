@@ -46,10 +46,11 @@ void loop()
   delay(700);
   digitalWrite(naranja, HIGH);
   delay(700);
-  digitalWrite(amarillo2, HIGH);
+  digitalWrite(amarillo2, LOW);
   digitalWrite(naranja,LOW);
   delay(1000);
-  digitalWrite(naranja,HIGH);
+  digitalWrite(naranja, HIGH);
+  delay(1000);
   digitalWrite(amarillo2, LOW);//  CAMBIO HIGH POR LOW
   digitalWrite(rojo1, HIGH);
   digitalWrite(verde1, LOW);
@@ -58,7 +59,6 @@ void loop()
  digitalWrite(verde1, HIGH);
   digitalWrite(amarillo1, LOW);// NO ES
   delay(400);
-  digitalWrite(amarillo1, HIGH);// NO ES 
   digitalWrite(rojo2, HIGH);
 
   contVuelta++;
@@ -68,6 +68,7 @@ void loop()
 void intermitente() {    
  state = !state;
  Serial.println("INTER");
+
   interrupts();  // Esta linea "vuelve" a habilitar la interrupciones
   
     digitalWrite(rojo1, LOW);
@@ -82,7 +83,7 @@ void intermitente() {
     digitalWrite(amarillo1, HIGH);
     digitalWrite(amarillo2,HIGH);
                  
-    delay(500);
+    delay(1000);
     }
     
   }
