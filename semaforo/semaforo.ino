@@ -33,28 +33,28 @@ void setup()
 
 void loop()
 {
-  delayRojo1 = 800;
+  delayRojo1 = 1600;
   digitalWrite(rojo1, LOW);
   digitalWrite(verde2, LOW);
   delay(delayRojo1);
   digitalWrite(verde2, HIGH);
   digitalWrite(amarillo2, LOW);
-  delay(500);
+  delay(1000);
   digitalWrite(naranja,LOW);
-  delay(500);
+  delay(1000);
   digitalWrite(naranja, HIGH);
-  delay(500);
+  delay(1000);
   digitalWrite(naranja,LOW);
-  delay(500);
+  delay(1000);
   digitalWrite(naranja,HIGH);
   digitalWrite(amarillo2, HIGH);
   digitalWrite(rojo1, HIGH);
   digitalWrite(verde1, LOW);
   digitalWrite(rojo2, LOW);
-  delay(800);
+  delay(1600);
  digitalWrite(verde1, HIGH);
   digitalWrite(amarillo1, LOW);
-  delay(200);
+  delay(400);
   digitalWrite(amarillo1, HIGH);
   digitalWrite(rojo2, HIGH);
   Serial.println("Otra vuelta ");
@@ -65,7 +65,7 @@ void loop()
 
 void intermitente() {    
  state = !state;
-  delay(500);
+  delay(1000);
   interrupts();  // Esta linea "vuelve" a habilitar la interrupciones
   
     digitalWrite(rojo1, LOW);
@@ -76,11 +76,11 @@ void intermitente() {
     
     digitalWrite(amarillo1, LOW);
     digitalWrite(amarillo2, LOW);
-    delay(500);
+    delay(1000);
     digitalWrite(amarillo1, HIGH);
     digitalWrite(amarillo2,HIGH);
                  
-    delay(500);
+    delay(1000);
     }
     
   }
@@ -89,7 +89,7 @@ void intermitente() {
 void extenderRojo() {
   interrupts();
   Serial.println("Paso por aca");
-  delayRojo1 = 5000;
+  delayRojo1 = 10000;
   //noInterrupts();
  // pinMode(5, OUTPUT);
  // pinMode(12, OUTPUT);
